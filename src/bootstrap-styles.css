@@ -1,0 +1,285 @@
+/* Importar fuentes y librerías desde CDN */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css');
+
+/* Modal Auth - Se muestra cuando no está logueado */
+body:not(:has(nav button:contains("Logout")))::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body:not(:has(nav button:contains("Logout")))::before {
+  content: '🔒 Autenticación Requerida Para acceder al contador, necesitas iniciar sesión primero. Haz click en "Login" en la barra de navegación.';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(28, 28, 30, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  white-space: pre-line;
+}
+
+/* Reset y base theme */
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+body {
+  background: #0a0a0a !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  min-height: 100vh !important;
+}
+
+#root {
+  background: #0a0a0a !important;
+  min-height: 100vh !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: left !important;
+}
+
+/* Navbar específico */
+nav[style*="padding: 1rem"] {
+  background: rgba(18, 18, 18, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 1rem 2rem !important;
+  margin-bottom: 0 !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 2rem !important;
+}
+
+/* Links del navbar */
+nav[style*="padding: 1rem"] a {
+  color: #e5e5e7 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  font-size: 17px !important;
+  padding: 8px 16px !important;
+  border-radius: 12px !important;
+  transition: all 0.2s ease !important;
+  margin-right: 0 !important;
+  position: relative !important;
+}
+
+nav[style*="padding: 1rem"] a::before {
+  content: '\F47F' !important;
+  font-family: 'bootstrap-icons' !important;
+  margin-right: 8px !important;
+  opacity: 0.7 !important;
+}
+
+nav[style*="padding: 1rem"] a[href="/counter"]::before {
+  content: '\F6AA' !important;
+}
+
+nav[style*="padding: 1rem"] a:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  transform: none !important;
+}
+
+/* Botón de login/logout en navbar */
+nav[style*="padding: 1rem"] button {
+  background: #007aff !important;
+  border: none !important;
+  color: #ffffff !important;
+  padding: 8px 20px !important;
+  border-radius: 12px !important;
+  font-weight: 500 !important;
+  font-size: 17px !important;
+  transition: all 0.2s ease !important;
+  margin-left: auto !important;
+}
+
+nav[style*="padding: 1rem"] button:hover {
+  background: #0056cc !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Home page - div con padding 1rem */
+div[style*="padding: 1rem"] {
+  background: rgba(28, 28, 30, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  margin: 2rem auto !important;
+  max-width: 800px !important;
+  padding: 3rem !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+}
+
+div[style*="padding: 1rem"] h1 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 48px !important;
+  line-height: 1.1 !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+  letter-spacing: -0.02em !important;
+}
+
+div[style*="padding: 1rem"] p {
+  color: #a1a1aa !important;
+  font-size: 19px !important;
+  line-height: 1.6 !important;
+  text-align: center !important;
+  font-weight: 400 !important;
+}
+
+/* Counter page - más específico */
+body div:not([style]):not(nav):has(h1:first-child) {
+  background: rgba(28, 28, 30, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  margin: 2rem auto !important;
+  max-width: 600px !important;
+  padding: 3rem !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  text-align: center !important;
+}
+
+/* Título del counter */
+h1:contains("Counter") {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 64px !important;
+  line-height: 1.1 !important;
+  margin-bottom: 2rem !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Fallback para el título counter */
+body div h1:first-child {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 64px !important;
+  line-height: 1.1 !important;
+  margin-bottom: 2rem !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Botones del counter */
+h1 + button {
+  background: #30d158 !important;
+  border: none !important;
+  color: #000000 !important;
+  padding: 16px 32px !important;
+  margin: 0 8px !important;
+  border-radius: 12px !important;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  min-width: 80px !important;
+  position: relative !important;
+}
+
+h1 + button::before {
+  content: '\F4FA' !important;
+  font-family: 'bootstrap-icons' !important;
+  font-size: 20px !important;
+}
+
+h1 + button:hover {
+  background: #28cd4c !important;
+  transform: scale(0.98) !important;
+}
+
+/* Botón decrement (segundo botón) - más específico */
+button + button {
+  background: #ff3b30 !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 16px 32px !important;
+  margin: 0 8px !important;
+  border-radius: 12px !important;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  min-width: 80px !important;
+}
+
+button + button::before {
+  content: '\F2E6' !important;
+  font-family: 'bootstrap-icons' !important;
+  font-size: 20px !important;
+}
+
+button + button:hover {
+  background: #d12b20 !important;
+  transform: scale(0.98) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav[style*="padding: 1rem"] {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    padding: 1rem !important;
+  }
+  
+  div[style*="padding: 1rem"],
+  body div:not([style]):not(nav):has(h1:first-child) {
+    margin: 1rem !important;
+    padding: 2rem !important;
+  }
+  
+  div[style*="padding: 1rem"] h1,
+  body div h1:first-child {
+    font-size: 36px !important;
+  }
+  
+  h1 + button {
+    padding: 14px 28px !important;
+    font-size: 20px !important;
+    margin: 4px !important;
+  }
+}
+
+/* Animaciones sutiles */
+div[style*="padding: 1rem"],
+body div:not([style]):not(nav):has(h1:first-child) {
+  transition: all 0.3s ease !important;
+}
+
+div[style*="padding: 1rem"]:hover,
+body div:not([style]):not(nav):has(h1:first-child):hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth !important;
+}
