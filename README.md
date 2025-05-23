@@ -1,12 +1,57 @@
-# React + Vite
+# Counter App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación React simple con contador, autenticación y rutas protegidas usando Redux Toolkit.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-  **Contador**: Incrementar y decrementar valores
+-  **Autenticación**: Sistema de login/logout básico
+-  **Rutas Protegidas**: El contador solo es accesible después del login
 
-## Expanding the ESLint configuration
+## Tecnologías
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Redux Toolkit
+- React Router DOM
+- CSS
+- Bootstrap Icons
+
+## Instalación
+
+```bash
+# clonar el repositorio
+git clone https://github.com/fg-dev-e/redux-auth.git
+
+# instalar dependencias
+npm i
+
+# ejecutar en dev mode
+npm run dev
+```
+
+## Estructura del Proyecto
+
+```
+src/
+├── components/
+│   ├── Navbar.jsx
+│   └── ProtectedRoute.jsx
+├── features/
+│   ├── auth/
+│   │   └── authSlice.js
+│   └── counter/
+│       └── counterSlice.js
+├── pages/
+│   ├── Home.jsx
+│   └── Counter.jsx
+├── app/
+│   └── store.js
+└── App.jsx
+```
+
+## Uso
+
+1. **Acceder a la aplicación**: La página de inicio es pública
+2. **Hacer Login**: Hacer clic en "Login" en la barra de navegación
+3. **Usar el Contador**: Una vez autenticado, acceder a counter para usar el contador
+4. **Logout**: Hacer clic en "Logout" para cerrar sesión
